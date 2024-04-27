@@ -6,7 +6,7 @@ React Dashboard website for Advanced Software Engineering Laboratory Telkom Univ
 
 
 ## Installation
-**HEADS UP BEFORE INSTALLATION!** This project was installed with these version of :
+**HEADS UP BEFORE INSTALLING!** This project was installed with these version of :
 ```
 node v18.16.0
 npm v9.5.1
