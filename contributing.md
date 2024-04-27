@@ -1,7 +1,7 @@
 # Contributing
 
 By participating in this project, you
-agree to abide by the thoughtbot [code of conduct].
+agree to abide by ASELab [code of conduct].
 
 [code of conduct]: https://github.com/F201/ASELab-dashboard/blob/main/CODE_OF_CONDUCT.md
 
