@@ -16,9 +16,12 @@ module.exports = {
   parserOptions: {
     project: ["tsconfig.json", "tsconfig.dev.json"],
     sourceType: "module",
+    tsconfigRootDir: __dirname,
   },
   ignorePatterns: [
-    "/lib/**/*", // Ignore built files.
+    "/lib/**/*",
+    "**/*.test.ts",
+    "**/*.config.*",
   ],
   plugins: [
     "@typescript-eslint",
@@ -28,5 +31,15 @@ module.exports = {
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,
     "indent": ["error", 2],
+    "linebreak-style": 0,
   },
+  overrides: [
+    {
+      files: ["**/testData.ts"],
+      rules: {
+        "max-len": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+      },
+    },
+  ],
 };
