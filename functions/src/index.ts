@@ -1,27 +1,31 @@
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+import {initializeApp} from "firebase-admin/app";
+import dotenv from "dotenv";
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+dotenv.config();
 
-export const helloWorld = onRequest((request, response) => {
+import {
+  BeforeUserCreated,
+  BeforeUserSignedIn,
+  CreateUser,
+  SyncUser,
+} from "./users/controller";
 
-  if(request.method !== "POST") {
-    response.status(405).send({
-      data: [],
-      status: "error",
-      message: "Method Not Allowed",
-    });
-    return;
-  } 
+dotenv.config();
+
+const config = {
+  apiKey: process.env.FB_API_KEY,
+  authDomain: process.env.FB_AUTH_DOMAIN,
+  databaseURL: process.env.FB_DATABASE_URL,
+  projectId: process.env.FB_PROJECT_ID,
+  storageBucket: process.env.FB_STORAGE_BUCKET,
+  messagingSenderId: process.env.FB_MESSAGING_SENDER_ID,
+  appId: process.env.FB_APP_ID,
+  measurementId: process.env.FB_MEASUREMENT_ID,
+};
 
 
-  logger.info("Hello logs!", {structuredData: true});
+initializeApp(config);
 
-  const { user } = request.body;
-  response.status(200).send({
-    data: [],
-    status: "success",
-    message: `Hello from ${user}!`,
-  });
-});
+export {
+  CreateUser, BeforeUserCreated, BeforeUserSignedIn, SyncUser,
+};
