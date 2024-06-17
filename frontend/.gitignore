@@ -28,3 +28,4 @@ dist-ssr
 
 # But include the example file explicitly
 !.env.example
+*storybook.log

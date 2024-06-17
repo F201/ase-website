@@ -1,21 +1,32 @@
-import { Button as ButtonMUI, ExtendButtonBase, ButtonTypeMap } from '@mui/material';
+import { Button as ButtonMUI } from '@mui/material';
+import { ReactNode } from 'react';
 
-interface ButtonProps extends ExtendButtonBase<ButtonTypeMap<{}, "button">>{
-    disabled?: boolean;
-    testId: string;
-    title?: string;
+export interface ButtonProps extends React.ComponentProps<typeof ButtonMUI>{
+    testId?: string;
+    children?: ReactNode;
+    variant?: 'text' | 'outlined' | 'contained';
+    color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
+    size?: 'small' | 'medium' | 'large';
+    disable?: boolean;
 }
 
 export const Button = ({
-    disabled,
+    children,
     testId,
-    title
+    color,
+    size='medium',
+    disable=false,
+    ...props
 }: ButtonProps) =>{
     return (
         <ButtonMUI
-            disabled={disabled}
             data-testid={testId}
-        >{title}
+            color={color}
+            size={size}
+            disabled={disable}
+            {...props}
+        >
+            {children}
         </ButtonMUI>
     )
 }
