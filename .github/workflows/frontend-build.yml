@@ -3,14 +3,12 @@ name: Frontend Build Check
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ "main", "stage" ]
     paths:
       - frontend/**
   pull_request:
-    branches:
-      - main
-    paths: 
+    branches: [ "main", "stage" ]
+    paths:
       - frontend/**
 
 jobs:
