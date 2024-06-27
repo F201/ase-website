@@ -8,13 +8,14 @@ on:
     branches: [ "main", "stage" ]
   pull_request:
     branches: [ "main", "stage" ]
-defaults:
- run:
-  working-directory: ./frontend
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+       run:
+        working-directory: ./frontend
+  
 
     strategy:
       matrix:
