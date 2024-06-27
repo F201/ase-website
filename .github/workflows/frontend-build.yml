@@ -4,6 +4,7 @@
 name: Node.js CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main", "stage" ]
   pull_request:
@@ -14,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
        run:
-        working-directory: ./frontend
+        working-directory: frontend
   
 
     strategy:
@@ -29,5 +30,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+        
+    - name: Install Dependency
+      run: npm ci
+
+    - name: Build
+      run: npm run build --if-present
