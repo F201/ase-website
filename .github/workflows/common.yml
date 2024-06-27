@@ -1,0 +1,41 @@
+name: Pre-Steps
+
+on:
+    workflow_call:
+    
+defaults:
+  run:
+    working-directory: frontend
+
+jobs:
+    checkout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+    setup-node:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+
+    cache-npm:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Cache node modules
+              id: cache-npm
+              uses: actions/cache@v3
+              env: 
+                  cache-name: cache-npm
+              with:
+                path: ~/.npm
+                key: firebase-frontend-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
+
+    install-dependencies:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install Dependencies
+              run: npm ci

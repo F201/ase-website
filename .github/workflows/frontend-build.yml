@@ -11,56 +11,15 @@ defaults:
     working-directory: frontend
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env: 
-          cache-name: cache-npm
-        with:
-          path: ~/.npm
-          key: firebase-frontend-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Lint Frontend
-        run: npm run lint
-
   build:
     runs-on: ubuntu-latest
-    needs: lint
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Pre-setup
+        uses: F201/ASELab-dashboard/.github/workflows/common.yml@main
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20
 
-    - name: Cache node modules
-      id: cache-npm
-      uses: actions/cache@v3
-      env: 
-        cache-name: cache-npm
-      with:
-        path: ~/.npm
-        key: firebase-frontend-${{ runner.os }}-${{ hashFiles('frontend/package-lock.json') }}
-
-    - name: Install Dependencies
-      run: npm ci
-
-    - name: Build Frontend
-      run: npm run build --if-present
+      - name: Build Frontend
+        run: npm run build --if-present
