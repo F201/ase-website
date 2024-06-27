@@ -1,5 +1,5 @@
 import { Checkbox as CheckboxMUI } from '@mui/material'
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export interface CheckboxProps extends React.ComponentProps<typeof CheckboxMUI>{
     defaultChecked?: boolean;
@@ -14,27 +14,27 @@ export interface CheckboxProps extends React.ComponentProps<typeof CheckboxMUI>{
 }
 
 export const Checkbox = ({
-    defaultChecked,
-    color,
-    disable=false,
-    icon,
-    size='medium',
-    testId,
-    required=false,
-    onClick=() => {},
-    ...props
+  defaultChecked=false,
+  color,
+  disable=false,
+  icon,
+  size='medium',
+  testId,
+  required=false,
+  onClick=() => {},
+  ...props
 }: CheckboxProps) => {
-    return (
-        <CheckboxMUI 
-            defaultChecked={defaultChecked}
-            color={color}
-            disabled={disable}
-            icon={icon}
-            size={size}
-            data-testid={testId}
-            onClick={onClick}
-            required={required}
-            {...props}
-        />
-    )
+  return (
+    <CheckboxMUI 
+      defaultChecked={defaultChecked}
+      color={color}
+      disabled={disable}
+      icon={icon}
+      size={size}
+      data-testid={testId}
+      onClick={onClick}
+      required={required}
+      {...props}
+    />
+  )
 }
