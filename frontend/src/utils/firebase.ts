@@ -1,7 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { connectAuthEmulator, getAuth } from "firebase/auth";
-import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
-import { connectStorageEmulator, getStorage } from "firebase/storage";
+import { initializeApp } from 'firebase/app';
+import { connectAuthEmulator, getAuth } from 'firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectStorageEmulator, getStorage } from 'firebase/storage';
 
 export const VITE_FIREBASE_CONFIG = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -16,15 +16,15 @@ export const VITE_FIREBASE_CONFIG = {
 
 const firebaseApp = initializeApp(VITE_FIREBASE_CONFIG);
 
-const HOST_NAME = "127.0.0.1";
+const HOST_NAME = '127.0.0.1';
 const NODE_ENV = import.meta.env.VITE_PROJECT_ENV;
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
 
-if (NODE_ENV === "development") {
-  console.log("Using Emulator");
+if (NODE_ENV === 'development') {
+  console.log('Using Emulator');
 
   connectAuthEmulator(auth, `http://${HOST_NAME}:9099`);
   connectFirestoreEmulator(firestore, HOST_NAME, 8080);
