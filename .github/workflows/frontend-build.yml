@@ -20,6 +20,8 @@ jobs:
       - name: Pre-setup
         uses: F201/ASELab-dashboard/.github/workflows/common.yml@main
 
-
       - name: Build Frontend
         run: npm run build --if-present
+
+      - name: Hello World
+        run: echo "Hello World!"
