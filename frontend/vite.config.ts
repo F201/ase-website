@@ -16,6 +16,8 @@ export default defineConfig({
       '@organisms': path.resolve(__dirname, 'src/components/organisms'),
       '@templates': path.resolve(__dirname, 'src/components/organisms'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@stories': path.resolve(__dirname, 'src/stories'),
+      '@tests': path.resolve(__dirname, 'src/tests')
     }
   }
 })
