@@ -33,7 +33,7 @@
       "@tests/*": ["src/tests/*"],
       "@utils/*": ["src/utils/*"],
       "@helpers/*": ["src/helpers/*"],
-      "@contracs/*": ["src/contracts/*"],
+      "@contracts/*": ["src/contracts/*"],
     }
   },
   "include": ["src", "public", "tests"],
