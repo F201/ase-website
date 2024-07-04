@@ -1,5 +1,5 @@
-import {initializeApp} from "firebase-admin/app";
-import dotenv from "dotenv";
+import {initializeApp} from 'firebase-admin/app';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -8,7 +8,7 @@ import {
   BeforeUserSignedIn,
   CreateUser,
   SyncUser,
-} from "./users/controller";
+} from './users/controller';
 
 dotenv.config();
 
@@ -22,7 +22,6 @@ const config = {
   appId: process.env.FB_APP_ID,
   measurementId: process.env.FB_MEASUREMENT_ID,
 };
-
 
 initializeApp(config);
 

@@ -30,7 +30,10 @@
       "@pages/*": ["src/pages/*"],
       "@stories/*": ["src/stories/*"],
       "@templates/*": ["src/components/templates/*"],
-      "@tests/*": ["src/tests/*"]
+      "@tests/*": ["src/tests/*"],
+      "@utils/*": ["src/utils/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@contracs/*": ["src/contracts/*"],
     }
   },
   "include": ["src", "public", "tests"],
