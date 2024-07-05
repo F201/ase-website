@@ -1,13 +1,12 @@
 import {initializeApp} from 'firebase-admin/app';
 import dotenv from 'dotenv';
 
-dotenv.config();
-
 import {
   BeforeUserCreated,
   BeforeUserSignedIn,
   CreateUser,
   SyncUser,
+  HelloWorld,
 } from './users/controller';
 
 dotenv.config();
@@ -27,4 +26,5 @@ initializeApp(config);
 
 export {
   CreateUser, BeforeUserCreated, BeforeUserSignedIn, SyncUser,
+  HelloWorld,
 };
