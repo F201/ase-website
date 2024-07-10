@@ -1,5 +1,30 @@
 import {z} from 'zod';
 
+/**
+ * @interface UserBasicInformation
+ * @description Represents the basic information of a user.
+ *
+ * @property {string} first_name - The first name of the user.
+ * @property {string} last_name - The last name of the user.
+ * @property {string} email - The email address of the user.
+ * @property {string} student_id - The student ID of the user.
+ *
+ * @example
+ * // Example usage:
+ * const user: UserBasicInformation = {
+ *   first_name: 'John',
+ *   last_name: 'Doe',
+ *   email: 'john.doe@example.com',
+ *   student_id: '1302194004'
+ * };
+ *
+ * @remarks
+ * This interface can be extended to include more user-related information
+ * as needed for various applications.
+ *
+ * @since 1.0.0
+ */
+
 export interface UserBasicInformation {
     first_name: string;
     last_name: string;

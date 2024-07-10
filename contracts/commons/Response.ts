@@ -1,5 +1,29 @@
 import {z} from 'zod';
 
+/**
+ * @interface ResponseMeta
+ * @description Represents the metadata of a response, including status, message, and data.
+ *
+ * @property {number} status - The status code of the response.
+ * @property {string} message - A message providing additional information about the response.
+ * @property {string | object | Array<unknown> | null} data - The data returned in the response. This can be a string, an object, an array, or null.
+ *
+ * @example
+ * // Example usage:
+ * const response: ResponseMeta = {
+ *   status: 200,
+ *   message: 'Success',
+ *   data: {
+ *     id: 1,
+ *     name: 'Sample Data'
+ *   }
+ * };
+ *
+ * @remarks
+ * The `data` property is flexible and can accommodate different types of response data.
+ *
+ * @since 1.0.0
+ */
 export interface ResponseMeta {
     status: number;
     message: string;
