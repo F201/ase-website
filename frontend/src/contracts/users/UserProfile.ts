@@ -20,8 +20,8 @@ import {UserBasicInformation, UserBasicInformationSchema} from './UserBasicInfor
  *     email: 'jane.doe@example.com',
  *     student_id: '1302194004'
  *   },
- *   created_at: new Date('2023-01-01T12:00:00Z'),
- *   updated_at: new Date('2023-06-01T12:00:00Z')
+ *   created_at: Timestamp.now(),
+ *   updated_at: Timestamp.now()
  * };
  *
  * @remarks
