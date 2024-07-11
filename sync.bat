@@ -17,17 +17,3 @@ for /D %%i in (contracts\*) do (
         robocopy "%%i" "functions\src\contracts\%%~nxi" /E > nul
     )
 )
-
-rem Command 1: Run the first npm build
-start cmd /c "cd functions && npm run build && npm run build:watch"
-
-rem Command 2: Run the second npm build
-start cmd /c "cd frontend && npm run build && npm run build:watch"
-
-rem Command 3: Start Firebase emulators
-start cmd /c "cd frontend && npm run storybook"
-
-rem Command 4: Start Firebase emulators
-start cmd /c "firebase emulators:start"
-
-

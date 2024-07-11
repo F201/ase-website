@@ -1,5 +1,5 @@
 import { Button as ButtonMUI } from '@mui/material';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export interface ButtonProps extends React.ComponentProps<typeof ButtonMUI>{
     testId?: string;
@@ -11,22 +11,22 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonMUI>{
 }
 
 export const Button = ({
-    children,
-    testId,
-    color,
-    size='medium',
-    disable=false,
-    ...props
+  children,
+  testId,
+  color,
+  size='medium',
+  disable=false,
+  ...props
 }: ButtonProps) =>{
-    return (
-        <ButtonMUI
-            data-testid={testId}
-            color={color}
-            size={size}
-            disabled={disable}
-            {...props}
-        >
-            {children}
-        </ButtonMUI>
-    )
+  return (
+    <ButtonMUI
+      data-testid={testId}
+      color={color}
+      size={size}
+      disabled={disable}
+      {...props}
+    >
+      {children}
+    </ButtonMUI>
+  )
 }

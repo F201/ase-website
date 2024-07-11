@@ -1,14 +1,13 @@
-import {initializeApp} from "firebase-admin/app";
-import dotenv from "dotenv";
-
-dotenv.config();
+import {initializeApp} from 'firebase-admin/app';
+import dotenv from 'dotenv';
 
 import {
   BeforeUserCreated,
   BeforeUserSignedIn,
   CreateUser,
   SyncUser,
-} from "./users/controller";
+  HelloWorld,
+} from './users/controller';
 
 dotenv.config();
 
@@ -23,9 +22,9 @@ const config = {
   measurementId: process.env.FB_MEASUREMENT_ID,
 };
 
-
 initializeApp(config);
 
 export {
   CreateUser, BeforeUserCreated, BeforeUserSignedIn, SyncUser,
+  HelloWorld,
 };

@@ -14,15 +14,12 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['tsconfig.json', 'tsconfig.dev.json'],
+    project: 'tsconfig.json',
     sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
   ignorePatterns: [
-    '/lib/**/*',
-    '**/*.test.ts',
     '**/*.config.*',
-    '/coverage/**',
   ],
   plugins: [
     '@typescript-eslint',
@@ -34,14 +31,6 @@ module.exports = {
     'linebreak-style': 0,
     'no-multiple-empty-lines': ['error', {max: 1, maxEOF: 1}],
     'indent': [1, 2],
+    'max-len': 'off',
   },
-  overrides: [
-    {
-      files: ['**/testData.ts', 'src/contracts/**/*.ts'],
-      rules: {
-        'max-len': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
-    },
-  ],
 };
