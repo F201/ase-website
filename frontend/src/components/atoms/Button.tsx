@@ -8,6 +8,7 @@ export interface ButtonProps extends React.ComponentProps<typeof ButtonMUI>{
     color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning';
     size?: 'small' | 'medium' | 'large';
     disable?: boolean;
+    iconPosition?: 'left' | 'right' | 'none';
 }
 
 export const Button = ({
@@ -15,7 +16,8 @@ export const Button = ({
   testId,
   color,
   size='medium',
-  disable=false,
+  disable,
+  //iconPosition='none',
   ...props
 }: ButtonProps) =>{
   return (
@@ -24,6 +26,7 @@ export const Button = ({
       color={color}
       size={size}
       disabled={disable}
+      
       {...props}
     >
       {children}

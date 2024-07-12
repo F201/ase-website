@@ -1,24 +1,22 @@
 import '@testing-library/jest-dom';
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react/pure';
-import { Checkbox } from '@atoms/Checkbox';
+import { TextField } from '@atoms/TextField';
 
-describe('Checkbox', () => {
+describe('TextField', () => {
   let component: HTMLElement;
   beforeEach(() => {
     render(
-      <Checkbox
-        testId='checkbox_test'
-        //variant='contained'
+      <TextField
+        testId='TextField_test'
+        required={false}
         color='primary'
-        size='medium'
-        disable={false}
-        required={true}
-        checked={false}
+        size='small'
+        disabled={false}
       />
     );
 
-    component = screen.getByTestId('checkbox_test');
+    component = screen.getByTestId('TextField_test');
   });
 
   afterEach(() => {
@@ -35,7 +33,7 @@ describe('Checkbox', () => {
   }) 
 
   test('Should contain testId', () => {
-    expect(component).toHaveAttribute('data-testid', 'checkbox_test');
+    expect(component).toHaveAttribute('data-testid', 'TextField_test');
   });
 
 })

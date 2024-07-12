@@ -1,24 +1,23 @@
 import '@testing-library/jest-dom';
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react/pure';
-import { Checkbox } from '@atoms/Checkbox';
+import { Fab } from '@atoms/FloatingActionButton';
 
-describe('Checkbox', () => {
+describe('Fab', () => {
   let component: HTMLElement;
   beforeEach(() => {
     render(
-      <Checkbox
-        testId='checkbox_test'
-        //variant='contained'
+      <Fab
+        testId='Fab_test'
+        variant='circular'
         color='primary'
         size='medium'
         disable={false}
-        required={true}
-        checked={false}
+        children='+'
       />
     );
 
-    component = screen.getByTestId('checkbox_test');
+    component = screen.getByTestId('Fab_test');
   });
 
   afterEach(() => {
@@ -35,7 +34,7 @@ describe('Checkbox', () => {
   }) 
 
   test('Should contain testId', () => {
-    expect(component).toHaveAttribute('data-testid', 'checkbox_test');
+    expect(component).toHaveAttribute('data-testid', 'Fab_test');
   });
 
 })

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta , StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Button, ButtonProps } from '@atoms/Button';
+import { Fab , FabProps } from '@atoms/FloatingActionButton';
 
-const ButtonMeta: Meta = {
-  title: 'Atoms/Button',
-  component: Button,
+const FabMeta: Meta = {
+  title: 'Atoms/Fab',
+  component: Fab,
   parameters:{
     actions: {
       argTypesRegex: '^on.*'
@@ -48,13 +48,12 @@ const ButtonMeta: Meta = {
   },
 };
 
-export default ButtonMeta;
-type Story = StoryObj<ButtonProps>;
+export default FabMeta;
+type Story = StoryObj<FabProps>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary',
-    variant: 'contained',
+    children: '+',
     color: 'primary',
     size: 'medium',
     disable: false,
@@ -65,19 +64,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary',
-    variant: 'outlined',
-    color: 'secondary',
-    size: 'medium',
-    disable: false,
-    onClick: action('clicked'),
-  },
-};
-
-export const Third: Story = {
-  args: {
-    children: 'Third',
-    variant: 'outlined',
+    children: '+',
     color: 'secondary',
     size: 'medium',
     disable: false,
