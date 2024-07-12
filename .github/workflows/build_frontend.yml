@@ -7,9 +7,9 @@ on:
     types:
       - completed
   push:
-    branches: ["main"]
+    branches: ["main", "stage"]
   pull_request:
-    branches: ["main"]
+    branches: ["main", "stage"]
 
 defaults:
   run:
