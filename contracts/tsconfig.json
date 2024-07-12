@@ -8,20 +8,13 @@
     "strict": true,
     "target": "es2017",
     "esModuleInterop": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "@users/*": ["src/users/*"],
-      "@utils/*": ["src/utils/*"],
-      "@contracts/*": ["src/contracts/*"],
-      "@discord/*": ["src/discord/*"],
-    }
+    "rootDir": "."
   },
   "compileOnSave": true,
   "include": [
-    "src", "src/**/*"
+    ".", "tsconfig.json", "./.eslintrc.js",
   ],
   "exclude": [
-    "node_modules", "lib"
+    "node_modules",
   ]
 }

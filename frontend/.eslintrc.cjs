@@ -16,4 +16,13 @@ module.exports = {
     'indent': [1, 2],
     'react/react-in-jsx-scope': 'off',
   },
+  overrides:[
+    {
+      files: ["src/contracts/**/*.ts"],
+      rules: {
+        'max-len': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+      }
+    }
+  ]
 }
