@@ -6,7 +6,6 @@ import {
   BeforeUserSignedIn,
   CreateUser,
   SyncUser,
-  HelloWorld,
 } from './users/controller';
 
 dotenv.config();
@@ -26,5 +25,4 @@ initializeApp(config);
 
 export {
   CreateUser, BeforeUserCreated, BeforeUserSignedIn, SyncUser,
-  HelloWorld,
 };
