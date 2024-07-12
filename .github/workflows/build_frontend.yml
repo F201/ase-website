@@ -1,9 +1,9 @@
-name: Build Frontend
+name: Frontend
 
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Verify Contract"]
+    workflows: ["Contract"]
     types:
       - completed
   push:
