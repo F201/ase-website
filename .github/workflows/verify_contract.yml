@@ -1,0 +1,28 @@
+name: Contract
+
+on:
+  push:
+    branches: ["main", "stage"]
+  pull_request: 
+    branches: ["main", "stage"]
+
+jobs:
+  check-contracts:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Verify frontend contracts folder
+        run: |
+          diff -r --exclude=node_modules --exclude=.eslintrc.js --exclude=.gitignore --exclude=package-lock.json --exclude=package.json --exclude=tsconfig.json contracts frontend/src/contracts || exit 1
+
+      - name: Verify functions contracts folder
+        run: |
+          diff -r --exclude=node_modules --exclude=.eslintrc.js --exclude=.gitignore --exclude=package-lock.json --exclude=package.json --exclude=tsconfig.json contracts functions/src/contracts || exit 1

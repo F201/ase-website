@@ -1,0 +1,71 @@
+name: Functions
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Contract"]
+    types:
+    - completed
+  push:
+    branches: ["main", "stage"]
+  pull_request:
+    branches: ["main", "stage"]
+
+defaults:
+  run:
+    working-directory: functions
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env: 
+          cache-name: cache-npm
+        with:
+          path: ~/.npm
+          key: firebase-functions-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint functions
+        run: npm run lint
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: Cache node modules
+      id: cache-npm
+      uses: actions/cache@v3
+      env: 
+        cache-name: cache-npm
+      with:
+        path: ~/.npm
+        key: firebase-functions-${{ runner.os }}-${{ hashFiles('functions/package-lock.json') }}
+
+    - name: Install Dependencies
+      run: npm ci
+
+    - name: Build Functions
+      run: npm run build --if-present
