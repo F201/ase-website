@@ -3,7 +3,7 @@ name: Build Frontend
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["verify-contract"]
+    workflows: ["Verify Contract"]
     types:
       - completed
   push:

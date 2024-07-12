@@ -1,4 +1,4 @@
-name: verify-contract
+name: Verify Contract
 
 on:
   push:
