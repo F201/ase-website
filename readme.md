@@ -1,4 +1,3 @@
-```markdown
 # ASELab Dashboard
 
 Welcome to the ASELab Dashboard project! This document contains guidelines for contributing to this project, including how to submit commits, create pull requests, debug, and build for production. Additionally, it includes naming conventions for branches, variables, and functions.
