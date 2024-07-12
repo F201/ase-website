@@ -1,124 +1,126 @@
+```markdown
 # ASELab Dashboard
 
-Selamat datang di proyek ASELab Dashboard! Dokumen ini berisi panduan untuk berkontribusi pada proyek ini, termasuk cara submit commit, membuat pull request, debugging, dan build untuk produksi. Selain itu, terdapat juga konvensi penamaan untuk branch, variabel, dan fungsi.
+Welcome to the ASELab Dashboard project! This document contains guidelines for contributing to this project, including how to submit commits, create pull requests, debug, and build for production. Additionally, it includes naming conventions for branches, variables, and functions.
 
-## Daftar Isi
-1. [Memulai](#memulai)
-2. [Menjalankan Debugging Proyek](#menjalankan-debugging-proyek)
-3. [Mengirimkan Commit](#mengirimkan-commit)
-4. [Membuat Pull Request](#membuat-pull-request)
-5. [Konvensi Penamaan](#konvensi-penamaan)
-   - [Penamaan Branch](#penamaan-branch)
-   - [Penamaan Variabel dan Fungsi](#penamaan-variabel-dan-fungsi)
+## Table of Contents
+1. [Getting Started](#getting-started)
+2. [Running Project Debugging](#running-project-debugging)
+3. [Submitting Commits](#submitting-commits)
+4. [Creating Pull Requests](#creating-pull-requests)
+5. [Naming Conventions](#naming-conventions)
+   - [Branch Naming](#branch-naming)
+   - [Variable and Function Naming](#variable-and-function-naming)
 
-## Memulai
+## Getting Started
 1. **Clone Repository:**
-   Pertama-tama, clone repository ini ke komputer Anda.
+   First, clone this repository to your computer.
    ```bash
    git clone https://github.com/F201/ASELab-dashboard.git
    ```
 
 2. **Install Dependencies:**
-   Lalu, install dependencies yang diperlukan.
+   Then, install the required dependencies.
    ```bash
    npm install
    ```
 
 3. **Start the Development Server:**
-   Jalankan server development untuk mulai bekerja.
+   Run the development server to start working.
    ```bash
    npm start
    ```
 
-## Menjalankan Debugging Proyek
-1. **Pergi ke Repository:**
-   Arahkan terminal Anda ke direktori repository.
+## Running Project Debugging
+1. **Go to Repository:**
+   Navigate your terminal to the repository directory.
    ```bash
-   cd [path ke repository Anda]
+   cd [path to your repository]
    ```
 
-2. **Jalankan Proyek Secara Lokal:**
-   Jalankan proyek di environment lokal Anda. Biasanya dengan perintah berikut:
-   FE only
+2. **Run the Project Locally:**
+   Run the project in your local environment. Typically, using the following commands:
+   - **Frontend only:**
+     ```bash
+     cd [front end path] 
+     npm run dev
+     ```
+   - **Backend only:**
+     ```bash
+     cd [back end path] 
+     npm run dev
+     ```
+   - **Both:**
+     ```bash
+     start.bat
+     ```
+   - **Production:**
+     ```bash
+     npm run build
+     npm run start
+     ```
+
+## Submitting Commits
+When contributing to this project, follow these guidelines for submitting commits:
+
+1. **Create a New Branch:**
+   For each feature or bug fix, create a new branch with a descriptive name.
    ```bash
-   cd [front end path] 
-   npm run dev
-   ```
-   BE only
-   ```bash
-   cd [back end path] 
-   npm run dev
-   ```
-   all
-  ```
- start.bat
-```
-   production
-
-
-## Mengirimkan Commit
-Saat berkontribusi ke proyek ini, ikuti panduan berikut untuk mengirimkan commit:
-
-1. **Buat Branch Baru:**
-   Untuk setiap fitur atau perbaikan bug, buat branch baru dengan nama yang deskriptif.
-   ```bash
-   git checkout -b feature/nama-fitur-anda
+   git checkout -b feature/your-feature-name
    ```
 
-2. **Lakukan Perubahan:**
-   Lakukan perubahan pada kode sesuai dengan standar dan pedoman proyek ini.
+2. **Make Changes:**
+   Implement your changes according to the project standards and guidelines.
 
-3. **Commit Perubahan Anda:**
-   Tulis pesan commit yang jelas dan singkat. Ikuti spesifikasi [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+3. **Commit Your Changes:**
+   Write clear and concise commit messages. Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
    ```bash
    git add .
-   git commit -m "feat: menambahkan deskripsi fitur baru"
+   git commit -m "feat: add new feature description"
    ```
 
-4. **Push Perubahan Anda:**
-   Push perubahan ke repository remote.
+4. **Push Your Changes:**
+   Push your changes to the remote repository.
    ```bash
-   git push origin feature/nama-fitur-anda
+   git push origin feature/your-feature-name
    ```
 
-## Membuat Pull Request
-Setelah Anda push perubahan, ikuti langkah-langkah berikut untuk membuat pull request:
+## Creating Pull Requests
+After you have pushed your changes, follow these steps to create a pull request:
 
-1. **Navigasi ke Repository:**
-   Buka repository GitHub di browser Anda.
+1. **Navigate to the Repository:**
+   Open the GitHub repository in your browser.
 
-2. **Buat Pull Request:**
-   Klik tombol "New Pull Request" dan pilih branch Anda.
+2. **Create a Pull Request:**
+   Click the "New Pull Request" button and select your branch.
 
-3. **Berikan Deskripsi:**
-   Isi template pull request dengan deskripsi yang jelas tentang perubahan yang Anda buat dan nomor isu yang relevan.
+3. **Provide a Description:**
+   Fill out the pull request template with a clear description of the changes you have made and any relevant issue numbers.
 
-4. **Minta Review:**
-   Minta review dari anggota tim atau kontributor yang relevan.
+4. **Request Reviews:**
+   Request reviews from team members or relevant contributors.
 
-5. **Tanggapi Umpan Balik:**
-   Tanggapi umpan balik atau perubahan yang diminta dari reviewer.
+5. **Respond to Feedback:**
+   Address any feedback or requested changes from reviewers.
 
-6. **Merge Pull Request:**
-   Setelah pull request Anda disetujui, merge ke branch utama.
+6. **Merge the Pull Request:**
+   Once your pull request has been approved, merge it into the main branch.
 
-## Konvensi Penamaan
+## Naming Conventions
 
-### Penamaan Branch
-Gunakan format berikut untuk penamaan branch:
-- **Feature Branches:** `feature/short-description`
-- **Bug Fix Branches:** `bugfix/short-description`
-- **Hotfix Branches:** `hotfix/short-description`
+### Branch Naming
+Use the following format for naming branches:
+- **Feature Branches:** `name/feature/short-description`
+- **Bug Fix Branches:** `name/bugfix/short-description`
+- **Hotfix Branches:** `name/hotfix/short-description`
 
-### Penamaan Variabel dan Fungsi
-Gunakan camelCase untuk nama variabel.
-Gunakan nama yang deskriptif yang mencerminkan tujuan dari variabel/fungsi tersebut.
+### Variable and Function Naming
+Use camelCase for variable names.
+Use descriptive names that convey the purpose of the variable/function.
 
-Contoh:
+Example:
 ```javascript
 let userName = "WahyuKakap";
 const maxRetries = 5;
 let isLoggedIn = true;
 ```
-
-Dengan mengikuti panduan ini, kita bisa menjaga kode tetap rapi dan mudah dipahami. Selamat berkontribusi dan semoga sukses!
