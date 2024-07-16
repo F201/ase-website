@@ -44,21 +44,30 @@ export const UserProfileSchema: z.ZodSchema<UserProfile> = z.object({
   }),
   laboratory_roles: z.array(z.nativeEnum(LABORATORY_ROLE, {
     message: 'Laboratory Role must be in the enum list',
-  })).refine((roles)=> {
-    const validRolesSet = new Set(VALID_MULTIPLE_ROLES);
+  }))
+    .refine((roles)=> {
+      const isDuplicate = new Set(roles).size !== roles.length;
 
-    const invalidRoles = roles
-      .filter((role) => !validRolesSet.has(role as VALID_MULTIPLE_ROLES_VALUE));
+      if (isDuplicate) {
+        return false;
+      }
+      return true;
+    }, {message: 'There are duplicate laboratory roles.'})
+    .refine((roles) => {
+      const validRolesSet = new Set(VALID_MULTIPLE_ROLES);
 
-    // If there are invalid roles and more than one role in total, it's invalid
-    if (invalidRoles.length > 0 && roles.length > 1) {
-      return false;
-    }
+      const invalidRoles = roles
+        .filter((role) => !validRolesSet.has(role as VALID_MULTIPLE_ROLES_VALUE));
 
-    return true;
-  }, {
-    message: 'User cannot have other roles if they are not in a laboratory',
-  }),
+      // If there are invalid roles and more than one role in total, it's invalid
+      if (invalidRoles.length > 0 && roles.length > 1) {
+        return false;
+      }
+
+      return true;
+    }, {
+      message: 'Multiple roles are only allowed for students in the roles of research student and laboratory assistant.',
+    }),
   metadata: UserMetadataSchema,
   created_at: z.instanceof(Timestamp, {
     message: 'Created At must be an instance of Firebase Firestore Timestamp',
