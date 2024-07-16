@@ -34,6 +34,6 @@ export const FileInformationSchema: z.ZodSchema<FileInformation> = z.object({
     invalid_type_error: 'File size must be a number',
   }),
   uploaded_at: z.instanceof(Timestamp, {
-    message: 'File upload timestamp must be an instance of Timestamp',
+    message: 'Upload At must be an instance of Timestamp',
   }),
 });
