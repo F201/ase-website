@@ -10,18 +10,6 @@ import {UserEmail, UserEmailSchema} from './UserEmail';
  * @property {UserEmail} email - The email address of the user.
  * @property {string} identifier_id - The identifier ID of the user, like NIP, NIDN, or NIM.
  *
- * @example
- * // Example usage:
- * const user: UserBasicInformation = {
- *   first_name: 'John',
- *   last_name: 'Doe',
- *   email: {
- *      telkom: 'johndoe@telkomuniversity.ac.id,
- *      personal: 'johndoe@gmail.com
- *   },
- *   identifier_id: '1302194004'
- * };
- *
  * @remarks
  * This interface can be extended to include more user-related information
  * as needed for various applications.
