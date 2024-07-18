@@ -14,7 +14,7 @@ export const createUserProfile = async (user: UserProfile):
   const firestore = admin.firestore();
 
   const student = await firestore.collection('users')
-    .where('student_id', '==', user.basic_information.student_id)
+    .where('student_id', '==', user.basic_information.identifier_id)
     .get();
 
   if (!student.empty) {

@@ -6,16 +6,9 @@ import {z} from 'zod';
  * @description Represents an achievement of a user.
  *
  * @property {string} title - The title of the achievement.
- * @property {string} date_awarded - The date when the achievement was awarded (in YYYY-MM-DD format).
+ * @property {string} issuer - The issuer of the achievement.
  * @property {string} description - A brief description of the achievement.
- *
- * @example
- * // Example usage:
- * const achievement: UserAchievement = {
- *   title: 'Best Student Award',
- *   date_awarded: '2023-06-15',
- *   description: 'Awarded for outstanding academic performance.'
- * };
+ * @property {Timestamp} issued_date - The date when the achievement was awarded
  *
  * @remarks
  * This interface can be extended to include more achievement-related information
@@ -26,6 +19,7 @@ import {z} from 'zod';
 
 export interface UserAchievement {
   title: string;
+  issuer: string;
   issued_date: Timestamp;
   description: string;
 }
@@ -34,6 +28,10 @@ export const UserAchievementSchema: z.ZodSchema<UserAchievement> = z.object({
   title: z.string({
     required_error: 'Title is required',
     invalid_type_error: 'Title must be a string',
+  }),
+  issuer: z.string({
+    required_error: 'Issuer is required',
+    invalid_type_error: 'Issuer must be a string',
   }),
   issued_date: z
     .instanceof(Timestamp)

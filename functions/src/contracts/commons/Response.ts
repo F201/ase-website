@@ -8,17 +8,6 @@ import {z} from 'zod';
  * @property {string} message - A message providing additional information about the response.
  * @property {string | object | Array<unknown> | null} data - The data returned in the response. This can be a string, an object, an array, or null.
  *
- * @example
- * // Example usage:
- * const response: ResponseMeta = {
- *   status: 200,
- *   message: 'Success',
- *   data: {
- *     id: 1,
- *     name: 'Sample Data'
- *   }
- * };
- *
  * @remarks
  * The `data` property is flexible and can accommodate different types of response data.
  *
