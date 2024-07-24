@@ -1,24 +1,22 @@
 import '@testing-library/jest-dom';
 
 import { cleanup, fireEvent, render, screen } from '@testing-library/react/pure';
-import { Checkbox } from '@atoms/Checkbox';
+import { Radio } from '@atoms/Radio';
 
-describe('Checkbox', () => {
+describe('Radio', () => {
   let component: HTMLElement;
   beforeEach(() => {
     render(
-      <Checkbox
-        testId='checkbox_test'
-        //variant='contained'
+      <Radio
+        testId='Radio_test'
+        checked={false}
         color='primary'
         size='medium'
-        disable={false}
-        required={true}
-        checked={false}
+        disabled={false}
       />
     );
 
-    component = screen.getByTestId('checkbox_test');
+    component = screen.getByTestId('Radio_test');
   });
 
   afterEach(() => {
@@ -35,7 +33,7 @@ describe('Checkbox', () => {
   }) 
 
   test('Should contain testId', () => {
-    expect(component).toHaveAttribute('data-testid', 'checkbox_test');
+    expect(component).toHaveAttribute('data-testid', 'Radio_test');
   });
 
 })
