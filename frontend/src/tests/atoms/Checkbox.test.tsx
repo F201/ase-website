@@ -9,7 +9,7 @@ describe('Checkbox', () => {
     render(
       <Checkbox
         testId='checkbox_test'
-        variant='contained'
+        //variant='contained'
         color='primary'
         size='medium'
         disable={false}

@@ -1,6 +1,8 @@
-import {Timestamp} from 'firebase-admin/firestore';
-import {IResponse} from '../utils/interface';
+import {Timestamp} from 'firebase/firestore';
+import {IResponse} from '@utils/interface';
+
 import {UserProfile} from './model';
+
 import * as admin from 'firebase-admin';
 
 export const createUserProfile = async (user: UserProfile):
@@ -12,7 +14,7 @@ export const createUserProfile = async (user: UserProfile):
   const firestore = admin.firestore();
 
   const student = await firestore.collection('users')
-    .where('student_id', '==', user.student_id)
+    .where('student_id', '==', user.basic_information.identifier_id)
     .get();
 
   if (!student.empty) {

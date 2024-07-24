@@ -14,8 +14,7 @@ const ButtonMeta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'text',
-                
+        type: 'text',                
       },
     },
     testId: {
@@ -67,6 +66,17 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: 'Secondary',
+    variant: 'outlined',
+    color: 'secondary',
+    size: 'medium',
+    disable: false,
+    onClick: action('clicked'),
+  },
+};
+
+export const Third: Story = {
+  args: {
+    children: 'Third',
     variant: 'outlined',
     color: 'secondary',
     size: 'medium',

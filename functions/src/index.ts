@@ -1,14 +1,6 @@
 import {initializeApp} from 'firebase-admin/app';
 import dotenv from 'dotenv';
 
-import {
-  BeforeUserCreated,
-  BeforeUserSignedIn,
-  CreateUser,
-  SyncUser,
-  HelloWorld,
-} from './users/controller';
-
 dotenv.config();
 
 const config = {
@@ -24,7 +16,4 @@ const config = {
 
 initializeApp(config);
 
-export {
-  CreateUser, BeforeUserCreated, BeforeUserSignedIn, SyncUser,
-  HelloWorld,
-};
+export * from '@users/controller';

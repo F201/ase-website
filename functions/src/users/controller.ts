@@ -11,6 +11,11 @@ import admin from 'firebase-admin';
 import {
   onDocumentCreated,
 } from 'firebase-functions/v2/firestore';
+import {onCall} from 'firebase-functions/v2/https';
+import {
+  ResponseMeta,
+  ResponseMetaSchema,
+} from '../contracts/commons/Response';
 
 export const CreateUser = onRequest(async (request, response) => {
   sanitizeRequestMethod(request, ['POST']);
@@ -53,4 +58,24 @@ export const SyncUser = onDocumentCreated('users/{id}', async (event)=> {
   return firestore.collection('users').doc(id).update({
     status: 'UPDATED',
   });
+});
+
+export const HelloWorld = onCall(() => {
+  const responseMeta: ResponseMeta = {
+    status: 200,
+    message: 'Hello from Firebase!',
+    data: [
+      'Hello',
+      'World',
+    ],
+  };
+
+  const isValid = ResponseMetaSchema.safeParse(responseMeta);
+
+  if (!isValid.success) {
+    throw new HttpsError('internal',
+      'ResponseMeta is not valid');
+  }
+
+  return responseMeta;
 });
