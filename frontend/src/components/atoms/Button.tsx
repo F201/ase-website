@@ -17,7 +17,6 @@ export const Button = ({
   color,
   size='medium',
   disable,
-  //iconPosition='none',
   ...props
 }: ButtonProps) =>{
   return (

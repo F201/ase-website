@@ -1,5 +1,4 @@
 import { Checkbox as CheckboxMUI } from '@mui/material'
-//import React, { ReactNode } from 'react';
 
 export interface CheckboxProps extends React.ComponentProps<typeof CheckboxMUI>{
     defaultChecked?: boolean;
@@ -7,7 +6,6 @@ export interface CheckboxProps extends React.ComponentProps<typeof CheckboxMUI>{
     disable?: boolean;
     size?: 'small' | 'medium';
     testId?: string;
-    //variant?: 'text' | 'outlined' | 'contained';
     required?: boolean;
     onClick?: () => void;
 }
