@@ -1,7 +1,8 @@
-import {Timestamp} from 'firebase/firestore';
 import {IResponse} from '@utils/interface';
-
 import {UserProfile} from './model';
+import {
+  FirestoreCollectionEnum,
+} from '@contracts/enums/FirestoreCollectionEnum';
 
 import * as admin from 'firebase-admin';
 
@@ -13,7 +14,7 @@ export const createUserProfile = async (user: UserProfile):
 
   const firestore = admin.firestore();
 
-  const student = await firestore.collection('users')
+  const student = await firestore.collection(FirestoreCollectionEnum.USERS)
     .where('student_id', '==', user.basic_information.identifier_id)
     .get();
 
@@ -21,10 +22,8 @@ export const createUserProfile = async (user: UserProfile):
     throw new Error('Student ID already exists');
   }
 
-  user.created_at = Timestamp.now();
-  user.updated_at = Timestamp.now();
-
-  const document = await firestore.collection('users').add(user);
+  const document = await firestore
+    .collection(FirestoreCollectionEnum.USERS).add(user);
 
   return {
     status: 201,
