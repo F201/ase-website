@@ -34,6 +34,7 @@
       "@utils/*": ["src/utils/*"],
       "@helpers/*": ["src/helpers/*"],
       "@contracts/*": ["src/contracts/*"],
+      "@styles/*": ["src/styles/*"],
     }
   },
   "include": ["src", "public", "tests"],
