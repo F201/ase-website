@@ -8,9 +8,7 @@ import { SocialMediaLinks } from '@molecules/footer/SocialMediaLinks';
 import { CopyrightText } from '@molecules/footer/CopyrightText';
 
 export const Footer = () => (
-  
-  // <Box sx={{ bgcolor: 'common.black', py: 8 }}>
-  <Container maxWidth={false} disableGutters >
+  <Container maxWidth={false} disableGutters sx={{position:'fixed', bottom:0}} >
     <Box display='flex' justifyContent='space-between'>
       <Box sx={{ border: '1px solid red', padding: '16px' }}> {/* Outline for the first box */}
         <FooterLogo />
@@ -31,6 +29,4 @@ export const Footer = () => (
       <CopyrightText />
     </Box>
   </Container>
-  // </Box>
-
 );
